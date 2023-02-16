@@ -20,14 +20,6 @@ class ToolState {
         this.lineWidth = width
     }
 
-    changeLineColor(color) {
-        this.tool.lineColor = color
-    }
-
-    changeLineWidth(width) {
-        this.tool.lineWidth = width
-    }
-
 }
 
 export default new ToolState()

@@ -88,7 +88,11 @@ const Canvas = observer(() => {
 
     return (
         <div className="canvas">
-            <canvas onMouseDown={() => mouseDownHandler()} ref={canvasRef} width={window.innerWidth * 0.8} height={window.innerHeight * 0.7}/>
+            <canvas onMouseDown={() => mouseDownHandler()}
+                    ref={canvasRef}
+                    width={window.innerHeight <= window.innerWidth ? window.innerHeight * 0.73 : window.innerWidth * 0.9}
+                    height={window.innerHeight <= window.innerWidth ? window.innerHeight * 0.73 : window.innerWidth * 0.9}
+            />
         </div>
     );
 });

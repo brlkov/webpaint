@@ -14,7 +14,6 @@ const Settingsbar = () => {
             <input
                 onChange={e => {
                     ToolState.setLineColor(e.target.value);
-                    ToolState.changeLineColor(e.target.value);
                 }}
                 id="line-color"
                 type="color"
@@ -23,7 +22,6 @@ const Settingsbar = () => {
             <input
                 onChange={e => {
                     ToolState.setLineWidth(e.target.value);
-                    ToolState.changeLineWidth(e.target.value);
                 }}
                 id="line-width"
                 type="number"
