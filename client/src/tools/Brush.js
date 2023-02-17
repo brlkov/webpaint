@@ -21,10 +21,22 @@ export default class Brush extends Tool {
     touchStartHandler (e) {
         this.touchStarted = true
         e.preventDefault()
+        CanvasState.pushToUndo(this.canvas.toDataURL())
+        CanvasState.socket.send(JSON.stringify({
+            id: this.id,
+            method: "undoList",
+            data: CanvasState.undoList
+        }))
     }
 
     mouseDownHandler (e) {
         this.mouseDown = true
+        CanvasState.pushToUndo(this.canvas.toDataURL())
+        CanvasState.socket.send(JSON.stringify({
+            id: this.id,
+            method: "undoList",
+            data: CanvasState.undoList
+        }))
     }
 
     touchEndHandler (e) {

@@ -77,19 +77,10 @@ const Canvas = observer(() => {
         }
     }
 
-    const mouseDownHandler = () => {
-        CanvasState.pushToUndo(canvasRef.current.toDataURL())
-        CanvasState.socket.send(JSON.stringify({
-            id: params.id,
-            method: "undoList",
-            data: CanvasState.undoList
-        }))
-    }
 
     return (
         <div className="canvas">
-            <canvas onMouseDown={() => mouseDownHandler()}
-                    ref={canvasRef}
+            <canvas ref={canvasRef}
                     width={window.innerHeight <= window.innerWidth ? window.innerHeight * 0.73 : window.innerWidth * 0.9}
                     height={window.innerHeight <= window.innerWidth ? window.innerHeight * 0.73 : window.innerWidth * 0.9}
             />
